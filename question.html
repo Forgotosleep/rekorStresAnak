@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekor Stres Anak</title>
+</head>
+<body>
+    <h1 id="soal"></h1 >
+
+    <br>
+    <form class='jawaban'>
+        <input type="radio" id="jawaban1" name="jawaban" value="1"></input>
+        <label for="jawaban1">Sangat Jarang</label><br>
+        <input type="radio" name="jawaban" id="jawaban2" value="2"></input>
+        <label >Jarang</label><br>
+        <input type="radio" name="jawaban" id="jawaban3" value="3"></input>
+        <label >Cukup Sering</label><br>
+        <input type="radio" name="jawaban" id="jawaban4" value="4"></input>
+        <label >Sering</label><br>
+        <input type="radio" name="jawaban" id="jawaban5" value="5"></input>
+        <label >Sangat Sering</label><br>
+    </form>
+    <button id='buttonPrevious'> < </button>
+    <button id='buttonNext'> > </button>
+    <button type="submit" id="submit" style="display: none;">submit</button>
+
+    <br>
+
+    <div id="result" style="display: none;">Level Stress Anda </div>
+    <script src="question.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

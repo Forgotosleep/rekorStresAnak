@@ -1,5 +1,9 @@
 // //Login Page
-//Since we're using Local Storage, highly unlikely that there's two different parents with the same name, so instead the child name will be saved inside as a property, so the same parent can enter multiple child
+//Since we're using Local Storage, highly unlikely that there's two different parents with the same name, so instead the child name will be saved inside as a property, so the same parent can enter multiple child.
+
+let currParent
+let currChild
+
 //Login checks whether there's data or not, if not, it returns false
 //If there is data in both input, it will process the data and checks whether there's a parent or child and adds them accordingly, after that it returns true
 const login = (data1, data2) => {
@@ -8,14 +12,15 @@ const login = (data1, data2) => {
     }
     namaOrtu = namaFix(data1)
     namaAnak = namaFix(data2)
+    localStorage.setItem('currParent', namaOrtu)  //Untuk setup user dan anaknya
+    localStorage.setItem('currChild', namaAnak)
     if (!localStorage.getItem(namaOrtu)) {  
         localStorage.setItem(namaOrtu, childWrite(childFactory(namaAnak)))
-        // localStorage.getItem(namaOrtu)
         console.log('Registration Successful!');
+        return true
     }
     else {
         let data = childRead(localStorage.getItem(namaOrtu))
-        // console.log(data);
         if (!data[namaAnak]) {
             data[namaAnak] = []
             localStorage.setItem(namaOrtu, childWrite(data))
@@ -90,6 +95,15 @@ submitButton.addEventListener('click', (event) => {
         login.appendChild(newDiv)
     }
     else {
-        window.open('./index2.html', '_self')
+        window.open('./question.html', '_self')
     }
 })
+
+// //DOM for List Rekor Page
+// const updateName = () => {
+//     document.querySelector('#rekor-namaOrtu').innerText = localStorage.currParent
+//     document.querySelector('#rekor-namaAnak').innerText =  localStorage.currChild
+// }
+// window.onload = updateName()
+
+
