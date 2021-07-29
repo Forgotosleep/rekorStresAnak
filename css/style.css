@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "poppins", sans-serif;
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-image: url(../img/cover-01.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+nav {
+    position: relative;
+    top: 0;
+    width: 100%;
+    padding: 5px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .nav-bar a {
+    color: #4C4947;
+    text-decoration: none;
+    letter-spacing: 1px;
+    padding: 2px 15px;
+    transition: .3s;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+nav .nav-bar a:hover {
+    background-color: #FBE73D;
+}
+
+nav .logo a img{
+    position: relative;
+    width: 14vh;
+}
+
+nav .login .login-btn {
+    color: #4C4947;
+    background-color: #FBE73D;
+    text-decoration: none;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+nav .login .login-btn:hover {
+    background-color: #e2d240;
+}
+
+.jumbotron {
+    max-width: 580px;
+    margin: 90px 100px;
+}
+
+.jumbotron .info h2 {
+    color: #4C4947;
+    font-size: 55px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 60px;
+    margin-bottom: 30px;
+}
+
+.jumbotron .info p {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+
+.jumbotron .get-started-btn {
+    color: #4C4947;
+    background-color: #FBE73D;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.jumbotron .get-started-btn:hover {
+    background-color: #e2d240;
+}

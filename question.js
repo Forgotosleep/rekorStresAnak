@@ -111,14 +111,38 @@ function renderResult(level){
 
 
 buttonNext.addEventListener('click', function(e){
-    emptyAnswer()
     indexSoal++
+    let udahAdaJawaban = false;
+    for (let key in listResult){
+        if (Number(key) === indexSoal){
+            udahAdaJawaban = true
+        } 
+    }
+    if (udahAdaJawaban){
+        let jawaban = 'jawaban' + listResult[indexSoal]
+        let radio = document.getElementById(jawaban)
+        radio.checked = true
+    } else {
+        emptyAnswer()
+    }
     showSoal()
 })
 
 buttonPrevious.addEventListener('click', function(){
-    emptyAnswer()
     indexSoal--
+    let udahAdaJawaban = false;
+    for (let key in listResult){
+        if (Number(key) === indexSoal){
+            udahAdaJawaban = true
+        } 
+    }
+    if (udahAdaJawaban){
+        let jawaban = 'jawaban' + listResult[indexSoal]
+        let radio = document.getElementById(jawaban)
+        radio.checked = true
+    } else {
+        emptyAnswer()
+    }
     showSoal()
 })
 
@@ -127,7 +151,7 @@ saveData.addEventListener('click', function(e) {
     let value = e.target.value
     saveResult(indexSoal, value)
     indexSoal++
-    if (Object.keys(listResult).length === listQuestion.length){
+    if (indexSoal === listQuestion.length){
         buttonSubmit.style.display = 'inline'
     } else {
         showSoal()
@@ -144,6 +168,7 @@ buttonSubmit.addEventListener('click', function(){
                 indexygkosong++
             } else {
                 indexSoal = indexygkosong
+                emptyAnswer()
                 showSoal()
             }
         }

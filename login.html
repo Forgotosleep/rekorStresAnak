@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rekor Stres Anak</title>
+    <title>Rekor Stress Anak</title>
     <!-- How high can your child *stress*? -->
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/login.css">
 </head>
+
 <body>
-    <div>
+    <nav>
+        <div class="nav-bar">
+            <a href="index.html"><i class="fa fa-home"></i> Home</a>
+        </div>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/rekor-stress-anak-logo-01.png" alt="Rekor-Stress-Anak Logo">
+            </a>
+        </div>
+        <div class="login">
+            <a href="login.html" class="login-btn"><i class="fa fa-sign-in"></i> Login / Register</a>
+        </div>
+    </nav>
+
+    <div class="desc">
         <h1>
-            REKOR STRES ANAK
+            REKOR STRESS ANAK
         </h1>
         <sub>
             How high can your child <em>stress</em>?
         </sub>
     </div>
-
-    <div class="form" style="display: flex;flex-direction: column;">
+    <div class="form" action="question.html">
         <h1>Login/Registration Form</h1>
-        <form style="background-color: white; color: black;">
-            <div class="login">
-                    <div class="ortuName">
+        <form>
+            <div class="input-form">
+                <div class="login">
+                    <div class="ortu-name">
                         <label for="ortuName">
-                            Nama orang tua: 
+                            Nama orang tua:
                         </label>
                         <input type="text" id="ortuName" name="ortuName" placeholder="Masukkan nama orang tua">
                     </div>
-                    <div class="anakName">
+                    <div class="anak-name">
                         <label for="anakName">
-                            Nama anak: 
+                            Nama anak:
                         </label>
                         <input type="text" id="anakName" name="anakName" placeholder="Masukkan nama anak">
                     </div>
+                </div>
             </div>
             <div class="button">
                 <button id="submitButton" type="submit">ENTER</button>
@@ -41,7 +60,8 @@
         </form>
     </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
 
+    <script src="./js/login.js"></script>
+</body>
+
+</html>

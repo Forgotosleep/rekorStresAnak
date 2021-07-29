@@ -1,0 +1,148 @@
+* {
+    margin : 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    background-color: #FBE73D;
+    font-family: "poppins", sans-serif;
+}
+
+nav {
+    position: relative;
+    top: 0;
+    padding: 5px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FAF9F9;
+}
+
+nav .nav-bar a {
+    color: #4C4947;
+    text-decoration: none;
+    letter-spacing: 1px;
+    padding: 2px 15px;
+    transition: .3s;
+    font-size: 20px;
+    transition-property: background;
+    font-weight: 500;
+}
+
+nav .nav-bar a:hover {
+    background-color: #FBE73D;
+}
+
+nav .logo a img{
+    position: relative;
+    width: 14vh;
+}
+
+nav .login .login-btn {
+    color: #4C4947;
+    background-color: #FBE73D;
+    text-decoration: none;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: .3s;
+    transition-property: background;
+}
+
+nav .login .login-btn:hover {
+    background-color: #e2d240;
+}
+
+.desc {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #4C4947;
+    width: 50%;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+}
+
+.desc h1 {
+    font-weight: 800;
+    margin-bottom: -10px;
+}
+
+.form {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FAF9F9;
+    color: #4C4947;
+    width: 50%;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ortu-name {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.anak-name {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input {
+    height: 15px;
+    margin-bottom: 10px;
+    padding: 16px 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(44, 45, 54, 0.17);
+    border-radius: 5px;
+    -webkit-transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.button button {
+    border: 0;
+    width: 50%;
+    cursor: pointer;
+    padding: 15px 0;
+    border-radius: 5px;
+    font-family: "Mulish", sans-serif;
+    font-weight: bold;
+    color: #FAF9F9;
+    background-color: #4C4947;
+}

@@ -89,13 +89,13 @@ submitButton.addEventListener('click', (event) => {
             document.querySelector('#loginError').remove()  //If there's 
         }
         console.log('Login Failed')
-        let login = document.querySelector('.login')
+        let login = document.querySelector('.input-form')
         let newDiv = document.createElement('div')
-        newDiv.innerHTML = '<p id="loginError"><b>Login failed, please fill in both names</b></p>'
+        newDiv.innerHTML = '<p id="loginError" style="color:red" ><b>* Login failed, please fill in both names</b></p>'
         login.appendChild(newDiv)
     }
     else {
-        window.open('./question.html', '_self')
+        window.open('question.html', '_self')
     }
 })
 
