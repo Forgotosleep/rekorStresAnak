@@ -74,6 +74,7 @@ function showResult(){
     // hasil.style.display = 'inline'
     // hasil.textContent += level
 
+    
     renderResult(level)
 }
 
@@ -101,8 +102,10 @@ function emptyAnswer(){
  
 showSoal()
 
-function renderResult(){
+function renderResult(level){
     //ganti page atau show popup
+    localStorage.setItem('currLevel', level)
+    window.open('./result.html', '_self')
 }
 
 
