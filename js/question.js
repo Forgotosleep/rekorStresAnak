@@ -10,31 +10,31 @@ let listQuestion = [
     '9. Apakah anak anda merasa lesu, kehilangan minat pada aktivitas yang biasa dijalani?',
     '10. Apakah anak anda tidak bersemangat dalam segala hal?',
     '11. Apakah total waktu Wakatime anak anda kurang dari 40 jam dalam satu minggu?'
-]
-
-
-let indexSoal = 0
-
-let listResult = {} /// dipush sesuai inputan, index == index question
-let level = 0
-
-let buttonNext = document.getElementById('buttonNext')
-let buttonPrevious = document.getElementById('buttonPrevious')
-let buttonSubmit = document.getElementById('submit')
-let saveData = document.querySelector('.jawaban')
-let hasil = document.getElementById('result')
-
-//function check semua pertanyaan sudah dijawab
-function checkComplete() {
+  ]
+  
+  
+  let indexSoal = 0
+  
+  let listResult = {} /// dipush sesuai inputan, index == index question
+  let level = 0
+  
+  let buttonNext = document.getElementById('buttonNext')
+  let buttonPrevious = document.getElementById('buttonPrevious')
+  let buttonSubmit = document.getElementById('submit')
+  let saveData = document.querySelector('.jawaban')
+  let hasil = document.getElementById('result')
+  
+  //function check semua pertanyaan sudah dijawab
+  function checkComplete() {
     if (listQuestion.length === Object.keys(listResult).length){
         return true
     } else {
         return false
     }
-}
+  }
     
-//function check score ==> hasil dari calculate result
-function checkLevel(score) {
+  //function check score ==> hasil dari calculate result
+  function checkLevel(score) {
     if (score <= 20) {
         level = 1
     } else if (score <= 40) {
@@ -47,38 +47,38 @@ function checkLevel(score) {
         level = 5
     }
     return level
-}
-
-
-//function calculate score
-function calculateScore(objResult) {
+  }
+  
+  
+  //function calculate score
+  function calculateScore(objResult) {
     let result = 0
     for (let item in objResult){
         result += Number(objResult[item])
     }
     return result * 100/ (Object.keys(objResult).length * 5) ///(level jawaban ada 5) percentage score
-}
-
-function saveResult(questionKe, answer){
+  }
+  
+  function saveResult(questionKe, answer){
     if (!listResult[questionKe]){
         listResult[questionKe]
     }
     listResult[questionKe] = answer
-}
-
-function showResult(){
+  }
+  
+  function showResult(){
     
     let percentageScore = calculateScore(listResult)
     let level = checkLevel(percentageScore)
-
+  
     // hasil.style.display = 'inline'
     // hasil.textContent += level
-
+  
     
     renderResult(level)
-}
-
-function showSoal(){
+  }
+  
+  function showSoal(){
     if (indexSoal === listQuestion.length-1){
         buttonNext.disabled = true;
     } else {
@@ -91,26 +91,26 @@ function showSoal(){
     }
     let showsoal = document.getElementById('soal')
     showsoal.textContent = listQuestion[indexSoal]
-}
-
-function emptyAnswer(){
+  }
+  
+  function emptyAnswer(){
     let item = document.querySelector('.jawaban')
     for (perItem of item){
         perItem.checked = false;
     }
-}
- 
-showSoal()
-
-function renderResult(level){
+  }
+  
+  showSoal()
+  
+  function renderResult(level){
     //ganti page atau show popup
     localStorage.setItem('currLevel', level)
     window.open('./result.html', '_self')
-}
-
-
-
-buttonNext.addEventListener('click', function(e){
+  }
+  
+  
+  
+  buttonNext.addEventListener('click', function(e){
     indexSoal++
     let udahAdaJawaban = false;
     for (let key in listResult){
@@ -126,9 +126,9 @@ buttonNext.addEventListener('click', function(e){
         emptyAnswer()
     }
     showSoal()
-})
-
-buttonPrevious.addEventListener('click', function(){
+  })
+  
+  buttonPrevious.addEventListener('click', function(){
     indexSoal--
     let udahAdaJawaban = false;
     for (let key in listResult){
@@ -144,23 +144,23 @@ buttonPrevious.addEventListener('click', function(){
         emptyAnswer()
     }
     showSoal()
-})
-
-saveData.addEventListener('click', function(e) {
+  })
+  
+  saveData.addEventListener('click', function(e) {
     console.log(e)
     let value = e.target.value
     saveResult(indexSoal, value)
-    indexSoal++
-    if (indexSoal === listQuestion.length){
-        buttonSubmit.style.display = 'inline'
-    } else {
+    if (indexSoal !== listQuestion.length-1){
+        indexSoal++
         showSoal()
         emptyAnswer()
+    } else {
+        buttonSubmit.style.display = 'flex'
     }
     console.log(listResult);
-})
-
-buttonSubmit.addEventListener('click', function(){
+  })
+  
+  buttonSubmit.addEventListener('click', function(){
     if (!checkComplete()){
         let indexygkosong = 0
         for (let key in listResult){
@@ -176,5 +176,4 @@ buttonSubmit.addEventListener('click', function(){
         showResult()
         indexSoal = 0
     }
-})
-
+  })

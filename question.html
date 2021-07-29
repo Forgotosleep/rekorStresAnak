@@ -1,34 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rekor Stres Anak</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/question.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
+
 <body>
-    <h1 id="soal"></h1 >
+  <header>
+    <div class="nav-bar">
+      <a href="#"><i class="fa fa-home"></i> Home</a>
+    </div>
+    <div class="logo">
+      <a href="index.html">
+        <img src="./img/rekor-stress-anak-logo-01.png" alt="Rekor-Stress-Anak Logo">
+      </a>
+    </div>
+    <div class="login">
+      <a href="#" class="login-btn"><i class="fa fa-sign-in"></i> Login / Register</a>
+    </div>
+  </header>
+  <hr style="border-top: 1px solid #8c8b8b;">
 
-    <br>
-    <form class='jawaban'>
-        <input type="radio" id="jawaban1" name="jawaban" value="1"></input>
-        <label >Sangat Jarang</label><br>
-        <input type="radio" name="jawaban" id="jawaban2" value="2"></input>
-        <label >Jarang</label><br>
-        <input type="radio" name="jawaban" id="jawaban3" value="3"></input>
-        <label >Cukup Sering</label><br>
-        <input type="radio" name="jawaban" id="jawaban4" value="4"></input>
-        <label >Sering</label><br>
-        <input type="radio" name="jawaban" id="jawaban5" value="5"></input>
-        <label >Sangat Sering</label><br>
-    </form>
-    <button id='buttonPrevious'> < </button>
-    <button id='buttonNext'> > </button>
-    <button type="submit" id="submit" style="display: none;">submit</button>
-
-    <br>
-
-    <div id="result" style="display: none;">Level Stress Anda </div>
-    <script src="question.js"></script>
+  <h1 id="soal"></h1>
+  <div id="wrapper2">
+    <form class="jawaban">
+      <label>
+        <input type="radio" name="jawaban" id="jawaban1" value="1"> Sangat Jarang
+      </label>
+      <br>
+      <label>
+          <input type="radio" name="jawaban" id="jawaban2" value="2"> Jarang
+      </label>
+      <br>
+      <label>
+          <input type="radio" name="jawaban" id="jawaban3" value="3"> Cukup Sering
+      </label>
+      <br>
+      <label>
+          <input type="radio" name="jawaban" id="jawaban4" value="4"> Sering
+      </label>
+      <br>
+      <label>
+          <input type="radio" name="jawaban" id="jawaban5" value="5"> Sangat Sering
+      </label>
+      <br>
+  </form>
+</div>
+  <div class="prv-nxt">
+    <button id='buttonPrevious'>Kembali</button>
+    <button id='buttonNext'>Selanjutnya</button>
+  </div>
+    <button type="submit" id="submit" style="display: none;">Submit</button>
+  <script src="./js/question.js"></script>
 </body>
+
 </html>
