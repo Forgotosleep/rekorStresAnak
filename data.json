@@ -1,0 +1,11 @@
+[
+    {
+        "namaOrtu": "admin",
+        "namaAnak": "admin123" 
+    },
+    {
+        "namaOrtu": "mbahmu",
+        "namaAnak": "nakmu",
+        "stressLvl":[1, 2, 3, 4, 5]
+    }
+]
