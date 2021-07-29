@@ -1,75 +1,95 @@
-// //TEST
-// const fs = require('fs');
-// fs()
-
-
-// const fs = require('fs')
-// let data = fs.readFile('./data.json', (err, data) => {
-//     console.log('test');
-// })  //WORKS!
-
-
-// let kucing = {kaki: 4, ekor: 1, dubur:2}
-// let written = JSON.stringify(kucing)
-
-// fs.writeFile('./data.json', written, 'utf8', (err) => {
-//     if (err) {
-//         console.log('fail to write');
-//     }
-//     else {
-//         console.log('write success');
-//     }
-// })
-
-// console.log(data);
-
-// let namaOrtu = ""
-// let namaAnak = ""
-
-//data.json
-// [
-//     {
-//         "namaOrtu": "admin",
-//         "namaAnak": "admin123" 
-//     },
-//     {
-//         "namaOrtu": "mbahmu",
-//         "namaAnak": "nakmu",
-//         "stressLvl":[1, 2, 3, 4, 5]
-//     }
-// ]
-
-// const regLogin = (namaOrtu, namaAnak) => {
-//     // let data 
-//     // let counter = data.length
-//     for (let i = 0; i < data.length; i++) {
-//         if (!data[i].namaOrtu && !data[i].namaAnak) {
-//             data.push({namaOrtu: namaOrtu, namaAnak: namaAnak})
-//         }
-        
-//     }
-//     return data
-// }
-
+// //Login Page
 //Since we're using Local Storage, highly unlikely that there's two different parents with the same name, so instead the child name will be saved inside as a property, so the same parent can enter multiple child
-const login = (namaOrtu, namaAnak) => {
-    if (!localStorage.getItem(`${namaOrtu}`)) {  
-        localStorage.setItem(`${namaOrtu}`, childFactory(namaAnak))
-        console.log(localStorage.getItem(`${namaOrtu}`));
+//Login checks whether there's data or not, if not, it returns false
+//If there is data in both input, it will process the data and checks whether there's a parent or child and adds them accordingly, after that it returns true
+const login = (data1, data2) => {
+    if (!data1 || !data2) {
+        return false
+    }
+    namaOrtu = namaFix(data1)
+    namaAnak = namaFix(data2)
+    if (!localStorage.getItem(namaOrtu)) {  
+        localStorage.setItem(namaOrtu, childWrite(childFactory(namaAnak)))
+        // localStorage.getItem(namaOrtu)
         console.log('Registration Successful!');
     }
     else {
+        let data = childRead(localStorage.getItem(namaOrtu))
+        // console.log(data);
+        if (!data[namaAnak]) {
+            data[namaAnak] = []
+            localStorage.setItem(namaOrtu, childWrite(data))
+            console.log('New child registered!');
+        }
         console.log('Login Success!');
-        return true 
+        return true
     }
 }
 
-const childFactory = (namaAnak) => {
-    return {
-        namaAnak: [namaAnak]  //properti pertama selalu adalah nama dari anak berupa string
+const namaFix = (nama) => {  //Untuk ubah semua nama jadi huruf kecil dan tanpa spasi
+    let data = nama.toLowerCase().split(' ')
+    let output = ""
+    if (data.length > 1) {
+        for (let i = 0; i < data.length; i++) {
+            output += data[i];
+        }
     }
+    else if (data.length === 1) {
+        output = data
+    }
+    return output
+}
+// console.log(namaFix('Manan Kaman Budiman'));  //Test case for namaFix
+
+const childFactory = (namaAnak) => {  //Just to make things a little bit easier for formatting, not necessary
+    let output = {}
+    output[namaAnak] = []
+    return output
 }
 
-let submitButton = document.querySelector('#submit-button')
+const childWrite = (namaAnak) => {  //Useless function, delete in refactoring
+    return JSON.stringify(namaAnak)
+}
 
-submit
+const childRead = (namaAnak) => {  //Useless function, delete in refactoring
+    return JSON.parse(namaAnak)
+}
+// console.log(childFactory(namaFix('Manan Kaman Budiman'))); //Test case for childFactory
+
+
+const updateData = (namaOrtu, namaAnak, value) => {  //When the questionarre is filled out and a level of stress output is produced, place said output in the 'value' parameter, along with the parent's name(namaOrtu) and also the child's name(namaAnak) so the data updates
+    let data = JSON.parse(localStorage[namaOrtu])
+    data[namaAnak].push(value)
+    localStorage[namaOrtu] = JSON.stringify(data)
+}
+
+const returnRekor = (namaOrtu, namaAnak) => {  //This one searches for the data of the child of the parent and returns and array consisting of test results past and present. Not future.
+    let data = JSON.parse(localStorage[namaOrtu])
+    return data[namaAnak]
+}
+
+///DOM for login/register page
+let submitButton = document.querySelector('#submitButton')
+
+submitButton.addEventListener('click', (event) => {
+    let namaOrtu = document.querySelector('#ortuName')
+    let namaAnak = document.querySelector('#anakName')
+    let loginResult = login(namaOrtu.value, namaAnak.value)
+    event.preventDefault()
+    namaOrtu.value = ''  //reset the input to empty/placeholder
+    namaAnak.value = ''
+    //Checks whether data is complete or not before logging in
+    if (!loginResult) {
+        if (document.querySelector('#loginError')) {
+            document.querySelector('#loginError').remove()  //If there's 
+        }
+        console.log('Login Failed')
+        let login = document.querySelector('.login')
+        let newDiv = document.createElement('div')
+        newDiv.innerHTML = '<p id="loginError"><b>Login failed, please fill in both names</b></p>'
+        login.appendChild(newDiv)
+    }
+    else {
+        window.open('./index2.html', '_self')
+    }
+})
