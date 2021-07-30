@@ -1,29 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rekor Stres Anak</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/rekor.css">
 </head>
+
 <body>
-    
+    <nav>
+        <div class="nav-bar">
+            <a href="./"><i class="fa fa-home"></i> Home</a>
+        </div>
+        <div class="logo">
+            <a href="./">
+                <img src="./img/rekor-stress-anak-logo-01.png" alt="Rekor-Stress-Anak Logo">
+            </a>
+        </div>
+        <div class="login" style="visibility: hidden;">
+            <a href="./login.html" class="login-btn"><i class="fa fa-sign-in"></i> Login / Register</a>
+            <!-- Logged in as <span id="namaOrtu"></span>, anak anda <span id="namaAnak"></span> -->
+        </div>
+    </nav>
+    <div class="title">
+        <h1>Rekor Stress Anak</h1>
+    </div>
     <div id="listMain">
         <div id="listHeader">
             <div id="rekor-namaOrtu">
-                Nama Orang Tua 
+                Nama Orang Tua
             </div>
             <div id="rekor-namaAnak">
                 Nama Anaknya
             </div>
         </div>
+        <div class="rekor">
+            <h3>Rekor Anak Anda:</h3>
+        </div>
 
         <ul class="rekorList">
             <!-- Placeholder     -->
-
         </ul>
+    </div>
+
+    <div class="clearBtn">
+        <button id="clearHistoryBtn">Clear History</button>
     </div>
 
     <script src="./js/rekor.js"></script>
 </body>
+
 </html>

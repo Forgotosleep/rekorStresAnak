@@ -12,7 +12,7 @@
 <body>
   <header>
     <div class="nav-bar">
-      <a href="#"><i class="fa fa-home"></i> Home</a>
+      <a href="./index.html"><i class="fa fa-home"></i> Home</a>
     </div>
     <div class="logo">
       <a href="index.html">
@@ -20,7 +20,9 @@
       </a>
     </div>
     <div class="login">
-      <a href="#" class="login-btn"><i class="fa fa-sign-in"></i> Login / Register</a>
+      <!-- <a href="./login.html" class="login-btn"><i class="fa fa-sign-in"></i> Login / Register</a> -->
+      Logged in as <span id="namaOrtu"></span> 
+      <br>Anak anda <span id="namaAnak"></span>
     </div>
   </header>
   <hr style="border-top: 1px solid #8c8b8b;">
@@ -55,7 +57,30 @@
     <button id='buttonNext'>Selanjutnya</button>
   </div>
     <button type="submit" id="submit" style="display: none;">Submit</button>
+  
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+          <h3 class="extraquestion">ExtraQuestion</h3>
+          <p id="extraquestion"></p>
+          <div class="option">
+            <label> <input type="radio" name="jawaban" > Sangat Jarang </label>
+            <br>
+            <label><input type="radio" name="jawaban" > Jarang </label>
+            <br>
+            <label> <input type="radio" name="jawaban" > Cukup Sering </label>
+            <br>
+            <label> <input type="radio" name="jawaban" > Sering</label>
+            <br>
+            <label> <input type="radio" name="jawaban" > Sangat Sering</label>
+            <br>
+          </div>
+          <button id="submitExtra" class='submitExtra'>Submit</button>
+      </div>
+    </div>
+
+
   <script src="./js/question.js"></script>
 </body>
 
 </html>
+

@@ -8,33 +8,38 @@ let listQuestion = [
     '7. Apakah anak anda sering melamun?',
     '8. Apakah anak anda melakukan self-harm (melukai diri sendiri)?',
     '9. Apakah anak anda merasa lesu, kehilangan minat pada aktivitas yang biasa dijalani?',
-    '10. Apakah anak anda tidak bersemangat dalam segala hal?',
-    '11. Apakah total waktu Wakatime anak anda kurang dari 40 jam dalam satu minggu?'
-  ]
-  
-  
-  let indexSoal = 0
-  
-  let listResult = {} /// dipush sesuai inputan, index == index question
-  let level = 0
-  
-  let buttonNext = document.getElementById('buttonNext')
-  let buttonPrevious = document.getElementById('buttonPrevious')
-  let buttonSubmit = document.getElementById('submit')
-  let saveData = document.querySelector('.jawaban')
-  let hasil = document.getElementById('result')
-  
-  //function check semua pertanyaan sudah dijawab
-  function checkComplete() {
-    if (listQuestion.length === Object.keys(listResult).length){
+    '10. Apakah anak anda tidak bersemangat dalam segala hal?'
+]
+
+let extraQuestion = 'Apakah total waktu Wakatime anak anda kurang dari 40 jam dalam satu minggu?'
+
+let indexSoal = 0
+let listResult = {}
+
+let buttonNext = document.getElementById('buttonNext')
+let buttonPrevious = document.getElementById('buttonPrevious')
+let buttonSubmit = document.getElementById('submit')
+let saveData = document.querySelector('.jawaban')
+let hasil = document.getElementById('result')
+
+//Untuk display logged in name
+const updateName = () => {
+    document.querySelector('#namaOrtu').innerHTML = `<strong>${localStorage.parentNameDisplay}</strong>`
+    document.querySelector('#namaAnak').innerHTML =  `<strong>${localStorage.childNameDisplay}</strong>`
+}
+window.onload = updateName()  //Instantly update name
+
+//function check semua pertanyaan sudah dijawab
+function checkComplete() {
+    if (listQuestion.length === Object.keys(listResult).length) {
         return true
     } else {
         return false
     }
-  }
-    
-  //function check score ==> hasil dari calculate result
-  function checkLevel(score) {
+}
+
+//function check score ==> hasil dari calculate result
+function checkLevel(score) {
     if (score <= 20) {
         level = 1
     } else if (score <= 40) {
@@ -47,133 +52,147 @@ let listQuestion = [
         level = 5
     }
     return level
-  }
-  
-  
-  //function calculate score
-  function calculateScore(objResult) {
+}
+
+
+//function calculate score mencari percentase score
+function calculateScore(objResult) {
     let result = 0
-    for (let item in objResult){
+    for (let item in objResult) {
         result += Number(objResult[item])
     }
-    return result * 100/ (Object.keys(objResult).length * 5) ///(level jawaban ada 5) percentage score
-  }
-  
-  function saveResult(questionKe, answer){
-    if (!listResult[questionKe]){
+    return result * 100 / (Object.keys(objResult).length * 5)
+}
+
+
+//menyimpan result dalam bentuk object dengan indexSoal sebagai key
+function saveResult(questionKe, answer) {
+    if (!listResult[questionKe]) {
         listResult[questionKe]
     }
     listResult[questionKe] = answer
-  }
-  
-  function showResult(){
-    
+}
+
+// menampilkan page result
+function showResult() {
     let percentageScore = calculateScore(listResult)
     let level = checkLevel(percentageScore)
-  
-    // hasil.style.display = 'inline'
-    // hasil.textContent += level
-  
-    
-    renderResult(level)
-  }
-  
-  function showSoal(){
-    if (indexSoal === listQuestion.length-1){
+    if (percentageScore === 100){
+        showExtraQuestion()
+    } else {
+        renderResult(level)
+    }
+}
+
+function showExtraQuestion(){
+    let modal = document.getElementById('myModal')
+    let question = document.getElementById('extraquestion')
+    let submitExtra = document.getElementById('submitExtra')
+    question.textContent = extraQuestion
+    modal.style.display = "block";
+    submitExtra.addEventListener('click', function(){
+        renderResult(6)
+    })
+}
+
+
+
+function renderResult(level) {
+    localStorage.setItem('currLevel', level)
+
+    //To push into data
+    let parent = localStorage.currParent
+    let child = localStorage.currChild
+    let data = JSON.parse(localStorage.getItem(parent))
+    data[child].push(localStorage.currLevel)
+    localStorage.setItem(parent, JSON.stringify(data))
+
+    window.open('./result.html', '_self')
+}
+
+
+// Menampilkan Soal
+function showSoal() {
+    if (indexSoal === listQuestion.length - 1) {
         buttonNext.disabled = true;
     } else {
         buttonNext.disabled = false;
     }
-    if (indexSoal === 0){
+    if (indexSoal === 0) {
         buttonPrevious.disabled = true;
     } else {
         buttonPrevious.disabled = false;
     }
+
+    checkJawaban()
     let showsoal = document.getElementById('soal')
     showsoal.textContent = listQuestion[indexSoal]
-  }
-  
-  function emptyAnswer(){
+}
+
+
+function emptyAnswer() {
     let item = document.querySelector('.jawaban')
-    for (perItem of item){
+    for (perItem of item) {
         perItem.checked = false;
     }
-  }
-  
-  showSoal()
-  
-  function renderResult(level){
-    //ganti page atau show popup
-    localStorage.setItem('currLevel', level)
-    window.open('./result.html', '_self')
-  }
-  
-  
-  
-  buttonNext.addEventListener('click', function(e){
+}
+
+function checkJawaban() {
+    let udahAdaJawaban = false;
+    for (let key in listResult) {
+        if (Number(key) === indexSoal) {
+            udahAdaJawaban = true
+        }
+    }
+    if (udahAdaJawaban) {
+        let jawaban = 'jawaban' + listResult[indexSoal]
+        let radio = document.getElementById(jawaban)
+        radio.checked = true
+        return true
+    } else {
+        emptyAnswer()
+        return false
+    }
+}
+
+buttonNext.addEventListener('click', function (e) {
     indexSoal++
-    let udahAdaJawaban = false;
-    for (let key in listResult){
-        if (Number(key) === indexSoal){
-            udahAdaJawaban = true
-        } 
-    }
-    if (udahAdaJawaban){
-        let jawaban = 'jawaban' + listResult[indexSoal]
-        let radio = document.getElementById(jawaban)
-        radio.checked = true
-    } else {
-        emptyAnswer()
-    }
     showSoal()
-  })
-  
-  buttonPrevious.addEventListener('click', function(){
+})
+
+buttonPrevious.addEventListener('click', function () {
     indexSoal--
-    let udahAdaJawaban = false;
-    for (let key in listResult){
-        if (Number(key) === indexSoal){
-            udahAdaJawaban = true
-        } 
-    }
-    if (udahAdaJawaban){
-        let jawaban = 'jawaban' + listResult[indexSoal]
-        let radio = document.getElementById(jawaban)
-        radio.checked = true
-    } else {
-        emptyAnswer()
-    }
     showSoal()
-  })
-  
-  saveData.addEventListener('click', function(e) {
-    console.log(e)
+})
+
+//menympan data ketika pilihan jawaban diklik dan langsung ke soal berikutnya
+saveData.addEventListener('click', function (e) {
     let value = e.target.value
     saveResult(indexSoal, value)
-    if (indexSoal !== listQuestion.length-1){
-        indexSoal++
-        showSoal()
-        emptyAnswer()
-    } else {
+    if (indexSoal === listQuestion.length - 1) {
         buttonSubmit.style.display = 'flex'
+    } else {
+        indexSoal++
+        setTimeout(showSoal, 500)
     }
     console.log(listResult);
-  })
-  
-  buttonSubmit.addEventListener('click', function(){
-    if (!checkComplete()){
+})
+
+// button submit keluar ketika sudah di soal terakhir
+buttonSubmit.addEventListener('click', function () {
+    if (!checkComplete()) {
         let indexygkosong = 0
-        for (let key in listResult){
-            if (Number(key) === indexygkosong){
+        for (let key in listResult) {
+            if (Number(key) === indexygkosong) {
                 indexygkosong++
             } else {
                 indexSoal = indexygkosong
-                emptyAnswer()
                 showSoal()
             }
         }
     } else {
         showResult()
-        indexSoal = 0
     }
-  })
+})
+
+showSoal()

@@ -79,6 +79,8 @@ let submitButton = document.querySelector('#submitButton')
 submitButton.addEventListener('click', (event) => {
     let namaOrtu = document.querySelector('#ortuName')
     let namaAnak = document.querySelector('#anakName')
+    localStorage.setItem('parentNameDisplay', namaOrtu.value)
+    localStorage.setItem('childNameDisplay', namaAnak.value)
     let loginResult = login(namaOrtu.value, namaAnak.value)
     event.preventDefault()
     namaOrtu.value = ''  //reset the input to empty/placeholder
@@ -99,11 +101,6 @@ submitButton.addEventListener('click', (event) => {
     }
 })
 
-// //DOM for List Rekor Page
-// const updateName = () => {
-//     document.querySelector('#rekor-namaOrtu').innerText = localStorage.currParent
-//     document.querySelector('#rekor-namaAnak').innerText =  localStorage.currChild
-// }
-// window.onload = updateName()
+
 
 

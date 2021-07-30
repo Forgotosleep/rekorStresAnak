@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+/* Install Font */
+@font-face {
+    font-family: "poppins", sans-serif;
+    src: url(../font/Poppins-Regular.ttf);
+}
+
 body {
     font-family: "poppins", sans-serif;
 }
@@ -48,6 +54,7 @@ nav .nav-bar a:hover {
 nav .logo a img{
     position: relative;
     width: 14vh;
+    left: 50%;
 }
 
 nav .login .login-btn {

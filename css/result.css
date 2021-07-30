@@ -4,6 +4,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Install Font */
+@font-face {
+  font-family: "poppins", sans-serif;
+  src: url(../font/Poppins-Regular.ttf);
+}
+
 body {
   height: 100vh;
   margin: 0;
@@ -40,6 +47,7 @@ header {
 .logo img{
   position: relative;
   width: 14vh;
+  left: 50%;
 }
 
 .login-btn, .next-btn {
@@ -71,8 +79,9 @@ hr {
   justify-content: flex-start;
 }
 .desc-solution {
-  padding: 0px 25% 0 88px;
+  padding: 35px 25% 0 88px;
   position: absolute;
+  height: 300px;
 }
 #termometer {
   width: 50px;
@@ -80,7 +89,7 @@ hr {
   height: 300px;
   position: absolute;
   border: 9px solid #4C4947;
-  border-radius: 20px;
+  border-radius: 25px;
   z-index: 1;
 }
 #termometer:before, #termometer:after {
@@ -132,11 +141,7 @@ hr {
   width: 50px;
   border-radius: 5px 0px 0px 5px;
   font-size: 12px;
-  right: 26px;
-  top: -3px;
-}
-#level-stress {
-  display: none;
+  right: 32px;
 }
 .next-btn {
   display: flex;
