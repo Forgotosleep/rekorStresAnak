@@ -144,11 +144,17 @@
   width: 40%;
   text-align: center;
   padding-bottom: 10px;
+  border-radius: 15px;
 }
 
 .option {
   padding: 10px 30%;
   text-align:left;
+}
+
+.extraquestion {
+  font-size: 24px;
+  margin-bottom: 0.5em;
 }
 
 /* The Close Button */

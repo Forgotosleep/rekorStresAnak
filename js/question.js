@@ -4,7 +4,7 @@ let listQuestion = [
     '3. Apakah anak anda menghindari interaksi sosial?',
     '4. Apakah jam makan anak anda berubah-ubah, atau tidak pasti?',
     '5. Apakah anak anda mengalami kesulitan tidur?',
-    '6. Apakah anak anda seringkali sakit perut, mual-mual, pusing, dll tanpa penyebab jelas?',
+    '6. Apakah anak anda seringkali sakit perut, mual-mual, pusing, dan lain-lain tanpa penyebab jelas?',
     '7. Apakah anak anda sering melamun?',
     '8. Apakah anak anda melakukan self-harm (melukai diri sendiri)?',
     '9. Apakah anak anda merasa lesu, kehilangan minat pada aktivitas yang biasa dijalani?',
@@ -95,6 +95,13 @@ function showExtraQuestion(){
     })
 }
 
+// const getDate = () => {
+//     let output = ""
+//     for (let i = 3; i < 24; i++) {
+//         output += Date()[i]
+//     }
+//     return output
+// }
 
 
 function renderResult(level) {
@@ -104,9 +111,10 @@ function renderResult(level) {
     let parent = localStorage.currParent
     let child = localStorage.currChild
     let data = JSON.parse(localStorage.getItem(parent))
+    // let date = getDate()
     data[child].push(localStorage.currLevel)
     localStorage.setItem(parent, JSON.stringify(data))
-
+    localStorage.setItem('testTaken', date)
     window.open('./result.html', '_self')
 }
 
