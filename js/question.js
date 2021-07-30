@@ -95,13 +95,6 @@ function showExtraQuestion(){
     })
 }
 
-// const getDate = () => {
-//     let output = ""
-//     for (let i = 3; i < 24; i++) {
-//         output += Date()[i]
-//     }
-//     return output
-// }
 
 
 function renderResult(level) {
@@ -111,10 +104,9 @@ function renderResult(level) {
     let parent = localStorage.currParent
     let child = localStorage.currChild
     let data = JSON.parse(localStorage.getItem(parent))
-    // let date = getDate()
     data[child].push(localStorage.currLevel)
     localStorage.setItem(parent, JSON.stringify(data))
-    localStorage.setItem('testTaken', date)
+    
     window.open('./result.html', '_self')
 }
 

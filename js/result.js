@@ -7,7 +7,11 @@ const level = localStorage.currLevel
 // let level = '4'
 
 let descArr = ['Anak anda cukup bahagia', 'Anak anda mengalami stress ringan', 'Anak anda mengalami stress sedang!', 'Anak anda mengalami stress cukup berat!!', 'Anak anda mengalami stress berat!!!', 'HATI-HATI, ANAK ANDA BISA JADI CALON PSIKOPAT (dan/atau Coder Brilian)']
-let solArr = ['Bangun suasana yang bisa membuat anak nyaman dan pastikan pola makan dan tidur anak sehat.', 'Luangkan waktu lebih untuk anak dan bantu anak memahami perasaannya.', 'Bantu anak menyadari jika ia sedang stress, jelaskan pada anak bahwa stress itu normal, selalu berikan dukungan positif, dan pastikan pola makan dan tidur anak sehat.', 'Dengarkan curahan hati sang anak, ajarkan cara mengelola emosi, luangkan waktu lebih untuk anak dan selalu berikan dukungan positif.', 'Luangkan waktu lebih untuk anak, ajarkan cara mengelola emosi, cari solusi bersama anak, selalu berikan dukungan positif dan pastikan pola tidur dan makan anak sehat.', '- Sebelum tidur, kunci ruangan anda\n- Kalau dia menawarkan makanan atau minuman, pastikan anda TIDAK mengkonsumsinya\n- Sebelum memakai sepatu, pastikan tidak ada paku atau benda tajam lain di dalamnya\n- Sebelum berangkat kerja, pastikan tidak ada benda tajam di dalam jangkauan anak anda\n- Waspadalah, waspadalah!']
+let solArr = ['Bangun suasana yang bisa membuat anak nyaman dan pastikan pola makan dan tidur anak sehat.', 'Luangkan waktu lebih untuk anak dan bantu anak memahami perasaannya.', 
+'Bantu anak menyadari jika ia sedang stress, jelaskan pada anak bahwa stress itu normal, selalu berikan dukungan positif, dan pastikan pola makan dan tidur anak sehat.', 
+'Dengarkan curahan hati sang anak, ajarkan cara mengelola emosi, luangkan waktu lebih untuk anak dan selalu berikan dukungan positif.', 
+'Luangkan waktu lebih untuk anak, ajarkan cara mengelola emosi, cari solusi bersama anak, selalu berikan dukungan positif dan pastikan pola tidur dan makan anak sehat.', 
+'- Sebelum tidur, kunci ruangan anda\n- Kalau dia menawarkan makanan atau minuman, pastikan anda TIDAK mengkonsumsinya\n- Sebelum memakai sepatu, pastikan tidak ada paku atau benda tajam lain di dalamnya\n- Sebelum berangkat kerja, pastikan tidak ada benda tajam di dalam jangkauan anak anda\n- Waspadalah, waspadalah!']
 
 //Untuk display logged in name
 const updateName = () => {
