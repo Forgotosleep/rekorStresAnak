@@ -37,7 +37,7 @@ nav {
     align-items: center;
 }
 
-nav .nav-bar a {
+/* nav .nav-bar a {
     color: #4C4947;
     text-decoration: none;
     letter-spacing: 1px;
@@ -49,12 +49,12 @@ nav .nav-bar a {
 
 nav .nav-bar a:hover {
     background-color: #FBE73D;
-}
+} */
 
 nav .logo a img{
     position: relative;
     width: 14vh;
-    left: 50%;
+    /* left: 50%; */
 }
 
 nav .login .login-btn {
@@ -89,6 +89,7 @@ nav .login .login-btn:hover {
     font-size: 16px;
     font-weight: normal;
     margin-bottom: 40px;
+    line-height: 1.9;
 }
 
 .jumbotron .get-started-btn {

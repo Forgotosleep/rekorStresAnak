@@ -16,7 +16,7 @@ window.onload = updateName()  //Instantly update name
 let rekorList = document.querySelector('.rekorList')
 for (let i = 0; i < data[child].length; i++) {
     let newLi = document.createElement('li')
-    let newText = document.createTextNode(`${i + 1}. ${data[child][i]}`)
+    let newText = document.createTextNode(`Cek stress anak ke - ${i + 1} = Level ${data[child][i]}`)    
     newLi.appendChild(newText)
     rekorList.appendChild(newLi)   
 }

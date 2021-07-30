@@ -16,7 +16,7 @@
     background: #FAF9F9;
     font-family: "Jaldi", sans-serif;
     font-size: 14px;
-    color: black;
+    color: #4C4947;
   }
   
   header {
@@ -29,7 +29,7 @@
     align-items: center;
   }
   
-  .nav-bar a {
+  /* .nav-bar a {
     color: #4C4947;
     text-decoration: none;
     letter-spacing: 1px;
@@ -41,12 +41,13 @@
   
   .nav-bar a:hover {
     background-color: #FBE73D;
-  }
+  } */
   
   .logo img{
     position: relative;
     width: 14vh;
-    left: 50%;
+    left: 0;
+    right: 0;
   }
   
   .login-btn, .next-btn, #buttonPrevious, #buttonNext, #submit {
@@ -89,6 +90,7 @@
     width: 100%;
     background: #FBE73D;
     border-radius: 8px;
+    padding: 10px 0;
   }
   #soal {
     padding: 1%;
@@ -139,7 +141,7 @@
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 40%;
   text-align: center;
   padding-bottom: 10px;
 }
@@ -150,16 +152,32 @@
 }
 
 /* The Close Button */
-.submitExtra {
+/* .submitExtra {
   color: #aaaaaa;
-  font-size: 25px;
+  font-size: 1.5em;
   font-weight: bold;
   align-items: center;
-}
+  padding: 0.3em 0.5em;
+  border-radius: 8px;
+} */
 
-.submitExtra:hover,
+/* .submitExtra:hover,
 .submitExtra:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+} */
+
+.submitExtra {
+  margin: 1% auto;
+  border: none;
+  text-align: center;
+  padding: 10px 88px;
+  background-color: #FBE73D;
+}
+
+#reminder{
+  display: none;
+  color: red;
+  text-align: center;
 }

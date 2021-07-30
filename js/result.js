@@ -1,4 +1,5 @@
 const temperature = document.getElementById("temperature");
+const termometer = document.getElementById("termometer");
 // const level = document.getElementById("level-stress");
 const level = localStorage.currLevel
 // let desc = document.querySelector('#desc')
@@ -16,6 +17,10 @@ const updateName = () => {
 window.onload = updateName()  //Instantly update name
 
 function setTemperature() {
+  if (level === "6") {
+    temperature.style.height = 105 + "%";
+    temperature.style.borderRadius = 20 + "px";
+  }
   if (level === "5") {
     temperature.style.height = 100 + "%";
     temperature.style.borderRadius = 20 + "px";
@@ -28,7 +33,13 @@ function setTemperature() {
 function result() {
   document.getElementById("result").innerHTML = level
   temperature.dataset.value = `Level ${level}`;
-  if (level === "5") {
+  if (level === "6") {
+    termometer.setAttribute("class", "termoGetar");
+    temperature.setAttribute("class", "tempGetar");
+    desc.innerText = descArr[5]
+    solution.innerText = solArr[5]
+  }
+  else if (level === "5") {
     desc.innerText = descArr[4]
     solution.innerText = solArr[4]
   }

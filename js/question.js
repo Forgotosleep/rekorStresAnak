@@ -167,6 +167,7 @@ buttonPrevious.addEventListener('click', function () {
 
 //menympan data ketika pilihan jawaban diklik dan langsung ke soal berikutnya
 saveData.addEventListener('click', function (e) {
+    document.querySelector('#reminder').style.display = 'none'
     let value = e.target.value
     saveResult(indexSoal, value)
     if (indexSoal === listQuestion.length - 1) {
@@ -187,6 +188,7 @@ buttonSubmit.addEventListener('click', function () {
                 indexygkosong++
             } else {
                 indexSoal = indexygkosong
+                document.querySelector('#reminder').style.display = 'block'
                 showSoal()
             }
         }

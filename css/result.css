@@ -1,16 +1,8 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-/* Install Font */
-@font-face {
-  font-family: "poppins", sans-serif;
-  src: url(../font/Poppins-Regular.ttf);
-}
-
 body {
   height: 100vh;
   margin: 0;
@@ -30,7 +22,7 @@ header {
   align-items: center;
 }
 
-.nav-bar a {
+/* .nav-bar a {
   color: #4C4947;
   text-decoration: none;
   letter-spacing: 1px;
@@ -42,12 +34,11 @@ header {
 
 .nav-bar a:hover {
   background-color: #FBE73D;
-}
+} */
 
 .logo img{
   position: relative;
   width: 14vh;
-  left: 50%;
 }
 
 .login-btn, .next-btn {
@@ -122,17 +113,49 @@ hr {
   width: 100%;
   top: 32%;
 }
+@keyframes spaceboots {
+	0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+	10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+	40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+	50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+	70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+	80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+	90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+	100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+.termoGetar {
+  animation-name: spaceboots;
+	animation-duration: 0.8s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	transform-origin:50% 50%;
+}
+.tempGetar {
+  animation-name: spaceboots;
+	animation-duration: 0.2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	transform-origin:50% 50%;
+}
+.tempGetar:before {
+  transform: rotate(12deg);
+  transition: all 5s ease-in-out;
+}
 #temperature {
   bottom: 0;
   background: linear-gradient(red, #FBE73D, #B9DFE1) no-repeat bottom;
   width: 100%;
   background-size: 100% 300px;
   transition: all 5s ease-in-out;
+  z-index: -5;
 }
 #termometer #temperature, #termometer #temperature:before, #termometer #temperature:after {
   position: absolute;
 }
-#termometer #temperature:before {
+#temperature:before {
   content: attr(data-value);
   background-color: #4C4947;
   color: white;

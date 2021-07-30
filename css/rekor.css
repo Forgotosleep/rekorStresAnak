@@ -25,7 +25,7 @@ nav {
     background-color: #FAF9F9;
 }
 
-nav .nav-bar a {
+/* nav .nav-bar a {
     color: #4C4947;
     text-decoration: none;
     letter-spacing: 1px;
@@ -37,12 +37,13 @@ nav .nav-bar a {
 
 nav .nav-bar a:hover {
     background-color: #FBE73D;
-}
+} */
 
 nav .logo a img{
     position: relative;
     width: 14vh;
-    left: 50%;
+    left: 0;
+    right: 0;
 }
 
 nav .login .login-btn {
@@ -114,4 +115,23 @@ nav .login .login-btn:hover {
     border-bottom: 1px solid #4C4947;
     padding-bottom: 7px;
     width: 300px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.button button {
+    border: 0;
+    width: 25%;
+    cursor: pointer;
+    padding: 15px 0;
+    border-radius: 5px;
+    font-family: "Mulish", sans-serif;
+    font-weight: bold;
+    color: #FAF9F9;
+    background-color: #4C4947;
 }
